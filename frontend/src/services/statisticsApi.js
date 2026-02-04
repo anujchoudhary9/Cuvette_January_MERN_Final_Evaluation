@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://cuvette-january-mern-final-evaluation.onrender.com";
+const API_URL = "https://cuvette-january-mern-final-evaluation-3fcr.onrender.com";
 
 export const getStatistics = async () => {
   const token = localStorage.getItem("token");
@@ -13,3 +13,4 @@ export const getStatistics = async () => {
 
   return res.data;
 };
+
