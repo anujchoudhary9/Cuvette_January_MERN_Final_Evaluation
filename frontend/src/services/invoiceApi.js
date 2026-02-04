@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://cuvette-january-mern-final-evaluation.onrender.com";
+const API_URL = "https://cuvette-january-mern-final-evaluation-3fcr.onrender.com";
 
 const authHeader = () => ({
   Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -26,4 +26,5 @@ export const deleteInvoice = async (id) => {
   });
   return res.data;
 };
+
 
