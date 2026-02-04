@@ -18,7 +18,7 @@ function Invoices() {
 
   const fetchInvoices = async () => {
     setLoading(true);
-    const res = await fetch("https://cuvette-january-mern-final-evaluation.onrender.com/api/invoices", {
+    const res = await fetch("https://cuvette-january-mern-final-evaluation-3fcr.onrender.com/api/invoices", {
       headers: { Authorization: `Bearer ${token}` },
     });
     const data = await res.json();
@@ -45,7 +45,7 @@ function Invoices() {
   /* ---------------- ACTIONS ---------------- */
 
   const markAsPaid = async (id) => {
-    await fetch(`https://cuvette-january-mern-final-evaluation.onrender.com/api/invoices/${id}/status`, {
+    await fetch(`https://cuvette-january-mern-final-evaluation-3fcr.onrender.com/api/invoices/${id}/status`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -58,7 +58,7 @@ function Invoices() {
   };
 
   const deleteInvoice = async () => {
-    await fetch(`https://cuvette-january-mern-final-evaluation.onrender.com/api/invoices/${deleteTarget}`, {
+    await fetch(`https://cuvette-january-mern-final-evaluation-3fcr.onrender.com/api/invoices/${deleteTarget}`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${token}` },
     });
@@ -375,4 +375,5 @@ function Invoices() {
 }
 
 export default Invoices;
+
 
