@@ -311,7 +311,7 @@ function Dashboard() {
                       p.image
                         ? p.image.startsWith("http")
                           ? p.image
-                          : `https://cuvette-january-mern-final-evaluation.onrender.com${p.image}`
+                          : `https://cuvette-january-mern-final-evaluation-3fcr.onrender.com${p.image}`
                         : PRODUCT_PLACEHOLDER
                     }
                   />
@@ -340,3 +340,4 @@ function Stat({ icon, value, label }) {
 }
 
 export default Dashboard;
+
