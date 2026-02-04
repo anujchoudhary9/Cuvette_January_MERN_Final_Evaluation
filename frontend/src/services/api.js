@@ -1,4 +1,4 @@
-const API_URL = "https://cuvette-january-mern-final-evaluation.onrender.com";
+const API_URL = "https://cuvette-january-mern-final-evaluation-3fcr.onrender.com";
 
 export async function apiFetch(endpoint, options = {}) {
   const token = localStorage.getItem("token");
@@ -22,4 +22,5 @@ export async function apiFetch(endpoint, options = {}) {
 
   return res.json();
 }
+
 
