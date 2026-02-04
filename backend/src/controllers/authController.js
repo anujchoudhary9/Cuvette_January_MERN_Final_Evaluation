@@ -66,28 +66,3 @@ exports.forgotPassword = async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 };
-
-// RESET PASSWORD (TOKEN IGNORED FOR NOW)
-exports.resetPassword = async (req, res) => {
-  const { password } = req.body;
-
-  try {
-    if (!password || password.length < 8) {
-      return res
-        .status(400)
-        .json({ message: "Password must be at least 8 characters" });
-    }
-
-    // TEMP: reset first user found (acceptable for evaluation)
-    const user = await User.findOne();
-    if (!user)
-      return res.status(404).json({ message: "User not found" });
-
-    user.password = await bcrypt.hash(password, 10);
-    await user.save();
-
-    res.json({ message: "Password reset successful" });
-  } catch {
-    res.status(500).json({ message: "Server error" });
-  }
-};
