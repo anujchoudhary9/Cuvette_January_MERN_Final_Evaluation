@@ -27,7 +27,7 @@ function Login() {
 
     try {
       const res = await fetch(
-        "https://cuvette-january-mern-final-evaluation.onrender.com/api/auth/login",
+        "https://cuvette-january-mern-final-evaluation-3fcr.onrender.com/api/auth/login",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -130,3 +130,4 @@ function Login() {
 }
 
 export default Login;
+
