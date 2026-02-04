@@ -61,6 +61,39 @@ router.post("/login", async (req, res) => {
   });
 });
 
+
+const authMiddleware = require("../middleware/authMiddleware");
+
+router.put("/update-profile", authMiddleware, async (req, res) => {
+  const { name, password } = req.body;
+
+  const user = await User.findById(req.user.id);
+  if (!user) {
+    return res.status(404).json({ message: "User not found" });
+  }
+
+  if (name) {
+    user.name = name;
+  }
+
+  if (password) {
+    user.password = await bcrypt.hash(password, 10);
+  }
+
+  await user.save();
+
+  res.json({
+    message: "Profile updated",
+    user: {
+      id: user._id,
+      name: user.name,
+      email: user.email,
+    },
+  });
+});
+
+
+
 /**
  * FORGOT PASSWORD (PAGE 3)
  */
