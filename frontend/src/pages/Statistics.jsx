@@ -190,7 +190,7 @@ function Statistics() {
                           p.image
                             ? p.image.startsWith("http")
                               ? p.image
-                              : `https://cuvette-january-mern-final-evaluation.onrender.com${p.image}`
+                              : `https://cuvette-january-mern-final-evaluation-3fcr.onrender.com${p.image}`
                             : PRODUCT_PLACEHOLDER
                         }
                         alt={p.name}
@@ -210,3 +210,4 @@ function Statistics() {
 }
 
 export default Statistics;
+
