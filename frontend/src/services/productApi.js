@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://cuvette-january-mern-final-evaluation.onrender.com";
+const API_BASE_URL = "https://cuvette-january-mern-final-evaluation-3fcr.onrender.com";
 
 export async function getAllProducts() {
   const response = await fetch(API_BASE_URL);
@@ -28,4 +28,5 @@ export async function buyProduct(productId, quantity) {
 
   return data;
 }
+
 
