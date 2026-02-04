@@ -22,7 +22,7 @@ function ForgotPassword() {
 
     try {
       const res = await fetch(
-        "https://cuvette-january-mern-final-evaluation.onrender.com/api/auth/forgot-password",
+        "https://cuvette-january-mern-final-evaluation-3fcr.onrender.com/api/auth/forgot-password",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -82,3 +82,4 @@ function ForgotPassword() {
 }
 
 export default ForgotPassword;
+
