@@ -1,0 +1,463 @@
+/* ================= GLOBAL RESET ================= */
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #3f4256;
+}
+
+
+/* ================= LOCK DOCUMENT SCROLL ================= */
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  /* 🔴 critical */
+}
+
+
+/* ================= ROOT ================= */
+
+.dashboard-root {
+  display: flex;
+  min-height: 100vh;
+  width: 100vw;
+  background: #3f4256;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ================= SIDEBAR ================= */
+
+.dashboard-sidebar {
+  width: 220px;
+  background: linear-gradient(180deg, #26283a 0%, #232534 100%);
+  display: flex;
+  flex-direction: column;
+  padding: 10px 12px 10px;
+
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.dashboard-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 220px;
+  z-index: 20;
+}
+
+/* ================= LOGO ================= */
+
+.dashboard-logo {
+  padding-left: 6px;
+  margin-bottom: 6px;
+}
+
+/* ================= NAV ================= */
+
+.dashboard-nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-nav a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 6px 10px;
+  border-radius: 9px;
+
+  font-size: 13px;
+  font-weight: 500;
+  color: #cfd3ff;
+  text-decoration: none;
+
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.dashboard-nav svg {
+  font-size: 15px;
+  color: #cfd3ff;
+  flex-shrink: 0;
+}
+
+.dashboard-nav a:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+.dashboard-nav a:hover svg {
+  color: #ffffff;
+}
+
+.dashboard-nav a.active {
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+}
+
+.dashboard-nav a.active svg {
+  color: #ffffff;
+}
+
+/* ================= SIDEBAR BOTTOM ================= */
+
+.sidebar-bottom {
+  margin-top: auto;
+  padding-top: 6px;
+  pointer-events: auto;
+}
+
+.sidebar-divider {
+  height: 1px;
+  margin: 10px 10px;
+  background: linear-gradient(to right,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.18),
+      rgba(255, 255, 255, 0.05));
+}
+
+
+/* ================= USER ================= */
+
+.dashboard-user {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+
+  height: 34px;
+
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+
+  color: #d9ddff;
+
+  margin: 0 24px;
+  border-radius: 16px;
+}
+
+.dashboard-user:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* LOGOUT BUTTON */
+
+.dashboard-logout {
+  margin: 6px 8px 0;
+  padding: 6px 8px;
+  font-size: 12px;
+  border-radius: 6px;
+
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+
+.dashboard-logout:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+/* ================= MAIN ================= */
+
+.dashboard-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #3f4256;
+
+  position: relative;
+  z-index: 1;
+}
+
+.dashboard-main {
+  margin-left: 220px;
+  overflow-x: hidden;
+}
+
+
+/* ================= HEADER ================= */
+
+.dashboard-header {
+  position: relative;
+  padding: 14px 24px 10px;
+  background: #3f4256;
+}
+
+.dashboard-header h1 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.dashboard-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* ================= CONTENT ================= */
+
+.dashboard-content {
+  padding: 14px 24px 22px;
+  background: #3f4256;
+  overflow: auto;
+}
+
+.dashboard-content {
+  overflow-y: auto;
+  height: calc(100vh - 54px);
+  /* header height */
+}
+
+.dashboard-content::-webkit-scrollbar {
+  width: 0;
+}
+
+/* ================= HEADER SEARCH ================= */
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dashboard-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  height: 32px;
+  padding: 0 14px;
+
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+
+  min-width: 220px;
+}
+
+.dashboard-search svg {
+  font-size: 16px;
+  color: #cfd3ff;
+}
+
+.dashboard-search input {
+  background: transparent;
+  border: none;
+  outline: none;
+
+  font-size: 13px;
+  color: #ffffff;
+  width: 100%;
+}
+
+.dashboard-search input::placeholder {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* =====================================================
+   MOBILE – CLEAN FIGMA MATCH (EDGE-TO-EDGE FOOTER FIXED)
+   ===================================================== */
+@media (max-width: 480px) {
+
+  /* ================= PAGE ================= */
+  html,
+  body,
+  #root {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #424457;
+    overflow: hidden;
+  }
+
+  /* ================= ROOT ================= */
+  .dashboard-root {
+    width: 100vw;
+    height: 100vh;
+    background: #424457;
+  }
+
+  /* ================= MAIN ================= */
+  .dashboard-main {
+    width: 100%;
+    height: 100%;
+    background: #424457;
+    position: relative;
+  }
+
+  /* ================= SIDEBAR (NEUTRALIZED) ================= */
+  .dashboard-sidebar {
+    position: static !important;
+    width: 0 !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  /* ================= HEADER ================= */
+  .dashboard-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    background: #424457;
+    z-index: 50;
+  }
+
+  .dashboard-header h1 {
+    display: none;
+  }
+
+  .dashboard-header::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  /* ================= PIE LOGO ================= */
+  .dashboard-logo {
+    position: fixed;
+    top: 14px;
+    left: 16px;
+    z-index: 60;
+  }
+
+  .dashboard-logo img {
+    width: 39px;
+    height: 39px;
+  }
+
+  /* ================= CONTENT ================= */
+  .dashboard-content {
+    position: absolute;
+    top: 64px;
+    bottom: 120px;
+    left: 0;
+    right: 0;
+    padding: 16px;
+    overflow-y: auto;
+  }
+
+  /* =====================================================
+     BOTTOM NAV — HARD EDGE-TO-EDGE OVERRIDE
+     ===================================================== */
+  .dashboard-nav {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin: 0 !important;
+
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    padding: 14px 28px !important;
+    background: #1f2230 !important;
+
+    border-radius: 20px 20px 0 0 !important;
+    z-index: 60 !important;
+  }
+
+  /* hide all links by default */
+  .dashboard-nav a {
+    display: none !important;
+  }
+
+  /* show ONLY bottom nav icons */
+  .dashboard-nav a[href="/dashboard"],
+  .dashboard-nav a[href="/products"],
+  .dashboard-nav a[href="/invoices"],
+  .dashboard-nav a[href="/statistics"] {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+
+    color: #cfd3ff;
+  }
+
+  /* 🔥 ICON SIZE — 34PX */
+  .dashboard-nav a svg {
+    font-size: 34px !important;
+  }
+
+  .dashboard-nav a.active svg {
+    color: #ffffff;
+  }
+
+  .dashboard-nav a:hover,
+  .dashboard-nav a:active {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  /* ================= SETTINGS ICON (TOP RIGHT) ================= */
+  .dashboard-nav a[href="/settings"] {
+    display: flex !important;
+    position: fixed !important;
+    top: 14px !important;
+    right: 16px !important;
+
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+    z-index: 9999 !important;
+  }
+
+  .dashboard-nav a[href="/settings"] svg {
+    font-size: 22px;
+    color: #ffffff;
+  }
+
+  .dashboard-nav a[href="/settings"]:hover,
+  .dashboard-nav a[href="/settings"]:active {
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  /* ================= CLEANUP ================= */
+  .dashboard-user,
+  .dashboard-logout,
+  .sidebar-divider,
+  .dashboard-search,
+  .dashboard-nav span {
+    display: none !important;
+  }
+}

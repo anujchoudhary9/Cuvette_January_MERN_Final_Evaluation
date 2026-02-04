@@ -1,0 +1,367 @@
+.home-title {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: #0f172a;
+}
+
+.home-row.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.home-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 14px 16px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* ================= CARD HEIGHTS ================= */
+
+.home-row:nth-of-type(1) .home-card,
+.home-row:nth-of-type(2) .home-card {
+  height: 120px;
+}
+
+.home-row:nth-of-type(3) .home-card,
+.home-row:nth-of-type(3) .home-card.large {
+  height: 520px;
+}
+
+/* ================= DEFAULT HEADER ================= */
+
+.home-card h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+  white-space: nowrap;
+}
+
+/* ================= CARD 1 — SALES OVERVIEW ================= */
+
+.home-row:nth-of-type(1) .home-card:first-child {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 6px;
+  padding: 0 28px;
+}
+
+.home-row:nth-of-type(1) .home-card:first-child h3 {
+  grid-column: 1 / 2;
+  justify-self: center;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.home-row:nth-of-type(1) .home-card:first-child .stat-grid {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* ================= CARD 2 — INVENTORY SUMMARY ================= */
+
+.home-row:nth-of-type(1) .home-card:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 28px;
+}
+
+.home-row:nth-of-type(1) .home-card:nth-child(2) h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.home-row:nth-of-type(1) .home-card:nth-child(2) .stat-grid {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+}
+
+.home-row:nth-of-type(1) .home-card:nth-child(2) .stat-item {
+  width: 120px;
+}
+
+/* ================= CARD 3 — PURCHASE OVERVIEW ================= */
+
+.home-row:nth-of-type(2) .home-card:first-child {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 6px;
+  padding: 0 28px;
+}
+
+.home-row:nth-of-type(2) .home-card:first-child h3 {
+  grid-column: 1 / 2;
+  justify-self: center;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.home-row:nth-of-type(2) .home-card:first-child .stat-grid {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* ================= CARD 4 — PRODUCT SUMMARY ================= */
+
+.home-row:nth-of-type(2) .home-card:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 28px;
+}
+
+.home-row:nth-of-type(2) .home-card:nth-child(2) h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.home-row:nth-of-type(2) .home-card:nth-child(2) .stat-grid {
+  display: flex;
+  gap: 32px;
+}
+
+/* ================= STAT ITEM ================= */
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+}
+
+.stat-item img {
+  width: 30px;
+  height: 30px;
+}
+
+.stat-item strong {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.stat-item span {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6b7280;
+  line-height: 1.1;
+}
+
+/* ================= CARD 5 — SALES & PURCHASE ================= */
+
+.home-row:nth-of-type(3) .home-card.large {
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.home-row:nth-of-type(3) .home-card.large h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+/* ================= WEEKLY TOGGLE ================= */
+
+.range-select {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  padding: 6px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 999px;
+  border: 2px solid #0f172a;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+/* ================= CHART ================= */
+
+.chart-wrapper {
+  flex: 1;
+  margin-top: 14px;
+  border: 1.5px solid #0f172a;
+  border-radius: 10px;
+  padding: 12px;
+  background: #ffffff;
+}
+
+/* ===================================================== */
+/* ============ CHART AXIS — SAFE OVERRIDE (ONLY) ======= */
+/* ===================================================== */
+
+.chart-wrapper .recharts-cartesian-axis-tick text {
+  font-size: 13px;
+  font-weight: 600;
+  fill: #0f172a;
+}
+
+.chart-wrapper .recharts-cartesian-axis-line {
+  stroke: #cbd5e1;
+  stroke-width: 1.5px;
+}
+
+.chart-wrapper .recharts-cartesian-grid-horizontal line {
+  stroke: #e5e7eb;
+  stroke-dasharray: 4 4;
+}
+
+.chart-wrapper .recharts-cartesian-grid-vertical {
+  display: none;
+}
+
+.chart-wrapper .recharts-legend-item-text {
+  font-size: 13px;
+  font-weight: 600;
+  fill: #0f172a !important;
+}
+
+/* ================= TOP PRODUCTS ================= */
+
+.home-row:nth-of-type(3) .home-card:not(.large) h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.top-products {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px 12px;
+}
+
+.top-product-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.top-product-item img {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 6px;
+}
+
+/* mobile home layout */
+@media (max-width: 480px) {
+
+  /* unlock parent layout scrolling (CRITICAL FIX) */
+  .dashboard-main,
+  .dashboard-layout,
+  .app-content,
+  .main-content {
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow: visible !important;
+    display: block !important;
+  }
+
+  .dashboard-content {
+    position: fixed;
+    top: 64px;
+    bottom: 96px;
+    left: 0;
+    right: 0;
+    padding: 12px;
+    margin: 0;
+    overflow-y: auto;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .home-row {
+    display: contents !important;
+  }
+
+  .home-row:nth-of-type(3) .home-card.large {
+    order: 1;
+    width: 100%;
+    height: 360px;
+    padding: 22px 24px;
+    border-radius: 16px;
+    background: #ffffff;
+    position: relative;
+  }
+
+  .home-row:nth-of-type(1) .home-card:first-child {
+    order: 2;
+    width: 100%;
+    padding: 16px;
+    border-radius: 16px;
+    background: #ffffff;
+  }
+
+  .home-row:nth-of-type(1) .home-card:first-child h3 {
+    text-align: center;
+    width: 100%;
+  }
+
+  .home-row:nth-of-type(2) .home-card:first-child {
+    order: 3;
+    width: 100%;
+    padding: 16px;
+    border-radius: 16px;
+    background: #ffffff;
+  }
+
+  .home-row:nth-of-type(2) .home-card:first-child h3 {
+    text-align: center;
+    width: 100%;
+  }
+
+  .home-row:nth-of-type(1) .home-card:nth-child(2) {
+    order: 4;
+    width: 100%;
+    padding: 16px;
+    border-radius: 16px;
+    background: #ffffff;
+  }
+
+  .home-row:nth-of-type(2) .home-card:nth-child(2) {
+    order: 5;
+    width: 100%;
+    padding: 16px;
+    border-radius: 16px;
+    background: #ffffff;
+  }
+
+  .home-row:nth-of-type(3) .home-card:not(.large) {
+    display: block !important;
+    order: 6;
+    width: 100%;
+    padding: 16px;
+    border-radius: 16px;
+    background: #ffffff;
+  }
+
+  .chart-wrapper .recharts-cartesian-axis-tick text {
+    font-size: 11px;
+  }
+
+  .chart-wrapper .recharts-legend-item-text {
+    font-size: 11px;
+  }
+}

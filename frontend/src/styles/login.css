@@ -1,0 +1,247 @@
+/* ================= RESET ================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ================= AUTH PAGES ================= */
+
+.login-page {
+  height: 100vh;
+  display: flex;
+  background: linear-gradient(135deg, #1f2430 0%, #2a2f3a 100%);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ---------- LEFT PANEL ---------- */
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  background: linear-gradient(135deg, #1f2430 0%, #2a2f3a 100%);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* IMPORTANT */
+  overflow-y: auto;
+}
+
+
+.login-left h2 {
+  font-family: "Inter";
+  font-size: 35px;
+  font-weight: 600;
+  line-height: 38px;
+  color: #2b2f38;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: #8a8f9c;
+  margin-top: 12px;
+}
+
+form {
+  margin-top: 40px;
+}
+
+label {
+  display: block;
+  margin-top: 22px;
+  font-size: 14px;
+  color: #2b2f38;
+}
+
+input {
+  width: 100%;
+  height: 52px;
+  margin-top: 8px;
+  padding: 0 16px;
+  border-radius: 12px;
+  border: none;
+  background: #ffffff;
+  font-size: 14px;
+}
+
+input:focus {
+  outline: 2px solid #c9cdd8;
+}
+
+.forgot {
+  margin-top: 12px;
+  text-align: right;
+}
+
+.forgot a {
+  font-size: 13px;
+  color: #4f6cf7;
+  text-decoration: none;
+}
+
+.login-btn {
+  width: 100%;
+  height: 54px;
+  margin-top: 28px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #2a2f3a 0%, #1f2430 100%);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  opacity: 0.95;
+}
+
+.signup-link {
+  margin-top: 16px;
+  font-size: 14px;
+  color: #2b2f38;
+  text-align: center;
+}
+
+.signup-link a {
+  color: #4f6cf7;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.error {
+  margin-top: 14px;
+  color: red;
+  font-size: 14px;
+}
+
+/* ---------- RIGHT PANEL ---------- */
+
+.login-right {
+  flex: 1;
+  padding: 90px;
+  color: #ffffff;
+  position: relative;
+}
+
+.login-right h1 {
+  font-size: 46px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.login-illustration {
+  margin-top: 40px;
+  max-width: 720px;
+  width: 100%;
+  margin-left: -60px;
+}
+
+.pie {
+  position: absolute;
+  top: 110px;
+  right: 350px;
+  width: 90px;
+}
+
+/* ---------- FORGOT / RESET ---------- */
+
+.forgot-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.forgot-illustration {
+  max-width: 820px;
+  width: 100%;
+  margin-left: -40px;
+}
+
+.forgot-password .login-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.forgot-password .login-left h2 {
+  font-family: "Inter", serif;
+  font-size: 34px;
+  font-weight: 500;
+  line-height: 42px;
+  color: #2b2f38;
+}
+
+.forgot-password form {
+  margin-top: 36px;
+}
+
+.forgot-password .login-btn {
+  margin-top: 32px;
+}
+
+.forgot-password .subtitle {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: #6f7787;
+  margin-top: 16px;
+}
+
+
+/* ================= MOBILE (PHONES ONLY) ================= */
+@media (max-width: 480px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .login-page {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+
+  .login-right,
+  .forgot-right {
+    display: none;
+  }
+
+  .login-left {
+    width: 100vw;
+    min-height: 100vh;
+    max-width: 100%;
+    padding: 56px 28px;
+    border-radius: 0;
+
+    background: #ececec;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+/* ================= DESKTOP (EVERYTHING ELSE) ================= */
+@media (min-width: 481px) {
+  .login-page {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    background: linear-gradient(135deg, #1f2430 0%, #2a2f3a 100%);
+  }
+
+  .login-left {
+    width: 520px;
+    padding: 90px 70px;
+    border-radius: 0 36px 36px 0;
+    background: #ececec;
+
+    display: block;
+  }
+
+  .login-right,
+  .forgot-right {
+    display: block;
+    flex: 1;
+  }
+}

@@ -1,0 +1,1106 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+
+
+/* ================= PAGE ================= */
+
+.products-page {
+  padding: 0px;
+  background: #3f445a;
+  min-height: 100%;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+
+
+/* ================= INVENTORY CARD ================= */
+
+.inventory-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 18px 28px 20px; /* tighter height, still wide */
+  margin-bottom: 20px;
+}
+
+/* Title */
+.inventory-card h3 {
+  font-size: 20px; /* reduced */
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 18px;
+  padding-left: 28px; /* align with columns */
+}
+
+/* ================= GRID ================= */
+
+.inventory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: start;
+}
+
+/* Columns */
+.inventory-grid > div {
+  padding: 0 24px; /* reduced horizontal padding */
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Dividers */
+.inventory-grid > div:not(:last-child) {
+  border-right: 1.5px solid #d1d5db;
+}
+
+/* Section label */
+.inventory-grid h4 {
+  font-size: 13px; /* reduced */
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+/* Main value */
+.inventory-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0f172a;
+  line-height: 1.2;
+}
+
+/* Subtext */
+.inventory-grid small {
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.3;
+}
+
+/* ================= DUAL VALUE ROW ================= */
+
+.inventory-dual-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 24px; /* tighter, closer to Figma */
+  margin-top: 4px;
+}
+
+.inventory-dual-row > div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+/* ================= PRODUCTS TABLE CARD ================= */
+
+.products-table-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 12px 14px 8px; /* tighter bottom */
+}
+
+.products-table-inner {
+  padding: 14px;
+}
+
+
+/* Header */
+.products-table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.products-table-header h3 {
+  font-size: 20px;          /* match Overall Inventory */
+  font-weight: 700;         /* match Overall Inventory */
+  color: #0f172a;
+  padding-left: 38px;       /* align with card title */
+}
+
+
+.products-table-header button {
+  padding: 10px 18px;
+  border-radius: 10px;
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.products-table-header button:hover {
+  background: #020617;
+}
+
+/* ================= TABLE ================= */
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+
+thead {
+  background: #c7cadb;
+}
+
+th {
+  font-size: 14px; /* +2px */
+  font-weight: 700;
+  color: #000000;
+  padding: 14px;
+  text-align: center;
+}
+
+thead th {
+  border-right: 2px solid #bfc4d6; /* visible like Figma */
+}
+
+thead th:last-child {
+  border-right: none;
+}
+
+
+td {
+  padding: 11px;
+  font-size: 13px;
+  font-weight: 500; /* slightly bolder */
+  color: #000000;
+  text-align: center; /* center data */
+  border-right: 1.5px solid #e2e8f0;
+}
+
+
+
+tbody tr {
+  border-bottom: 1.5px solid #e5e7eb;
+}
+
+tbody td {
+  border-right: 2px solid #e0e5f0;
+}
+
+tbody td:last-child {
+  border-right: none;
+}
+
+
+.product-name {
+  color: #000000;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+}
+
+
+
+/* ================= STATUS ================= */
+
+.status.in-stock {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+.status.low-stock {
+  color: #f97316;
+  font-weight: 600;
+}
+
+.status.out-of-stock {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+
+/* ================= PAGINATION ================= */
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.pagination span {
+  font-size: 12px;
+  color: #475569;
+}
+
+.pagination button {
+  padding: 7px 16px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pagination button:hover:not(:disabled) {
+  background: #f1f5f9;
+}
+
+.pagination button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+/* ================= ADD PRODUCT MODAL ================= */
+
+.add-product-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.add-product-modal {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 44px 40px;
+  width: 440px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* Buttons */
+.add-product-option {
+  background: #1f2937;
+  color: #ffffff;
+  border: none;
+  border-radius: 14px;
+  padding: 20px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.add-product-option:hover {
+  background: #111827;
+}
+
+.add-product-option:active {
+  transform: scale(0.98);
+}
+
+/* ================= PRODUCT FORM PAGE ================= */
+
+.product-form-page {
+  padding: 20px;
+}
+
+.product-form-breadcrumb {
+  font-size: 13px;
+  color: #cbd5f5;
+  margin-bottom: 12px;
+}
+
+.product-form-card {
+  background: #eef0f6;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.product-form-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Layout */
+.product-form-content {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 32px;
+}
+
+/* Image */
+.product-image-box {
+  width: 180px;
+  height: 180px;
+  border: 1px dashed #9ca3af;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.product-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.image-browse {
+  margin-top: 6px;
+  color: #2563eb;
+  cursor: pointer;
+}
+
+/* Form */
+.product-form-fields {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 12px;
+  margin-bottom: 6px;
+  color: #334155;
+}
+
+.form-group input,
+.form-group select {
+  height: 36px;
+  width: 100%;              /* ✅ obey grid column */
+  padding: 0 12px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 13px;
+  background: #ffffff;
+}
+
+
+/* Actions */
+.product-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+
+/* ================= ADD PRODUCT (INDIVIDUAL) PAGE ================= */
+
+.product-page-header {
+  margin-bottom: 8px;
+}
+
+.product-page-header .breadcrumb {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.product-page-header p {
+  color: #E7E8EA;
+}
+
+
+/* Card */
+.add-product-card {
+  background: #ECECF4;
+  border-radius: 14px;
+  padding: 20px 24px;
+  max-width: 1100px;
+  margin-left: 0;     /* force left alignment */
+}
+
+
+
+/* Title */
+.add-product-title {
+  font-size: 16px;
+  color: #424457;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+/* Image upload */
+.image-upload-box {
+  width: 100px;
+  height: 100px;
+  border: 1px dashed #A3A6B1;
+  border-radius: 12px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #6B7280;
+  text-align: center;
+}
+
+
+.image-upload-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.image-upload-instructions {
+  margin-top: 8px;
+  text-align: center;
+  font-size: 12px;
+  color: #6b7280; /* soft gray */
+  line-height: 1.4;
+}
+
+.image-upload-instructions .or {
+  margin: 2px 0;
+  color: #9ca3af;
+}
+
+.image-upload-instructions .browse {
+  color: #2563eb;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.image-upload-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.image-upload-box {
+  width: 100px;
+  height: 100px;
+  border: 1px dashed #94a3b8;
+  border-radius: 10px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-upload-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.image-upload-instructions {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+}
+
+.upload-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: #424457;
+  margin-bottom: 6px;   /* tighter + consistent */
+}
+
+.upload-or {
+  font-size: 12px;
+  color: #6b7280;       /* make it visible */
+  margin: 4px 0 6px;   /* balanced spacing */
+}
+
+.upload-link {
+  color: #2563eb;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 13px;
+  margin-top: 0px;                        
+}
+
+.upload-title {
+  font-weight: 500;
+  font-size: 12px;
+  color: #424457;
+}
+
+.upload-or {
+  font-size: 11px;
+  color: #9CA3AF;
+}
+
+.upload-link {
+  font-size: 12px;
+  font-weight: 500;
+  color: #2563EB;
+  cursor: pointer;
+}
+
+
+/* ================= FORM LAYOUT (INLINE LABEL + INPUT) ================= */
+
+.add-product-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Label + input row */
+.form-group {
+  display: grid;
+  grid-template-columns: 140px 260px;
+  align-items: center;
+  column-gap: 16px;
+}
+
+/* Labels */
+.form-group label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #424457;
+  white-space: nowrap;
+}
+
+/* Inputs */
+.form-group input,
+.form-group select {
+  height: 36px;
+  width: 400px;
+  padding: 0 12px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 13px;
+  background: #ffffff;
+}
+
+.form-group input:disabled {
+  background: #f5f6fa;
+  color: #64748b;
+}
+
+/* Groups like Price/Quantity now stack vertically */
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ===== DATE INPUT REFINEMENT ===== */
+
+.form-group input[type="date"] {
+  color: #424457;
+  font-weight: 400;
+}
+
+/* Lighter placeholder-like look */
+.form-group input[type="date"]::-webkit-datetime-edit {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+/* Calendar icon – soften */
+.form-group input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+/* Remove bold black date text */
+.form-group input[type="date"] {
+  font-family: inherit;
+  letter-spacing: 0.2px;
+}
+
+/* Center calendar icon better */
+.form-group input[type="date"]::-webkit-calendar-picker-indicator {
+  margin-right: 6px;
+  opacity: 0.55;
+}
+
+
+
+/* ===== CATEGORY SELECT REFINEMENT ===== */
+
+.form-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-color: #ffffff;
+  border: 1px solid #d5dbea;          /* softer border */
+  color: #424457;                     /* same as labels */
+  font-weight: 400;                   /* less bold */
+  
+  padding-right: 36px;                /* space for arrow */
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7280' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+}
+
+/* Focus states – consistent & calm */
+.form-group select:focus,
+.form-group input:focus {
+  outline: none;
+  border-color: #94a3b8;
+  box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.4);
+}
+
+/* Dropdown options (best effort – browser-limited) */
+.form-group select option {
+  font-size: 13px;
+  padding: 8px;
+}
+
+
+
+/* Actions */
+.add-product-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: none;
+  color: #252628;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ================= ADD PRODUCT PAGE WRAPPER ================= */
+
+.add-product-page {
+  background: #ECECF4;
+  padding: 16px 24px; /* reduced spacing */
+  min-height: 100%;
+}
+
+
+
+/* ================= CSV UPLOAD MODAL ================= */
+
+/* Overlay */
+.csv-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+/* Modal */
+.csv-modal {
+  width: 460px;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 20px 22px 18px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  font-family: inherit;
+}
+
+/* Header */
+.csv-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.csv-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  color: #0f172a;
+}
+
+.csv-close {
+  font-size: 20px;
+  cursor: pointer;
+  color: #64748b;
+}
+
+.csv-close:hover {
+  color: #0f172a;
+}
+
+/* Subtitle */
+.csv-subtitle {
+  margin: 6px 0 14px;
+  font-size: 13px;
+  color: #64748b;
+}
+
+/* Dropzone */
+.csv-dropzone {
+  border: 1.5px dashed #cbd5e1;
+  border-radius: 12px;
+  padding: 28px 20px;
+  text-align: center;
+  background: #f8fafc;
+}
+
+.csv-icon {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.csv-dropzone p {
+  font-size: 14px;
+  font-weight: 500;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.csv-or {
+  display: block;
+  font-size: 12px;
+  color: #94a3b8;
+  margin: 6px 0;
+}
+
+/* Browse button */
+.csv-browse {
+  display: inline-block;
+  padding: 7px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #0f172a;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.csv-browse:hover {
+  background: #f1f5f9;
+}
+
+/* File info */
+.csv-file-info {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 13px;
+  color: #0f172a;
+}
+
+/* Error */
+.csv-error {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #dc2626;
+}
+
+/* Actions */
+.csv-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.csv-cancel {
+  background: transparent;
+  border: none;
+  font-size: 13px;
+  color: #64748b;
+  cursor: pointer;
+}
+
+.csv-cancel:hover {
+  color: #0f172a;
+}
+
+.csv-next {
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.csv-next:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+}
+
+/* ================= CSV UPLOADED FILE STATE ================= */
+
+.csv-file-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-top: 16px;
+}
+
+.csv-file-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.csv-file-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: #0f172a;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.csv-file-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.csv-file-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.csv-file-size {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.csv-file-remove {
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  color: #94a3b8;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.csv-file-remove:hover {
+  color: #0f172a;
+}
+
+/* Error */
+.csv-error {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #dc2626;
+}
+
+/* Actions */
+.csv-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.csv-cancel {
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  color: #64748b;
+  cursor: pointer;
+}
+
+.csv-upload {
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ================= PRODUCT ROW HOVER ================= */
+
+.products-page table tbody tr {
+  transition: background-color 0.15s ease;
+}
+
+.products-page table tbody tr:hover {
+  background-color: #E1E3F3;
+}
+
+/* ================= BUY PRODUCT MODAL ================= */
+
+.buy-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 60;
+}
+
+.buy-modal {
+  width: 360px;
+  background: #e5e5e5;
+  border-radius: 18px;
+  padding: 26px 24px 22px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+  text-align: center;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+/* Title */
+.buy-title {
+  background: linear-gradient(180deg, #0f172a, #020617);
+  color: #ffffff;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+/* Product name */
+.buy-product-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+/* Available */
+.buy-available {
+  font-size: 13px;
+  color: #475569;
+  margin-bottom: 16px;
+}
+
+/* Quantity input */
+.buy-input {
+  width: 100%;
+  height: 46px;
+  border-radius: 12px;
+  border: none;
+  background: #9ca3af;
+  color: #ffffff;
+  font-size: 14px;
+  padding: 0 16px;
+  margin-bottom: 14px;
+}
+
+.buy-input::placeholder {
+  color: #e5e7eb;
+}
+
+/* Error */
+.buy-error {
+  color: #dc2626;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+/* Buy button */
+.buy-confirm {
+  width: 100%;
+  height: 44px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(180deg, #0f172a, #020617);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.buy-confirm:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Cancel button */
+.buy-cancel {
+  width: 100%;
+  height: 44px;
+  border-radius: 12px;
+  background: transparent;
+  border: 1px solid #94a3b8;
+  color: #020617;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ================= HARD HORIZONTAL SCROLL LOCK ================= */
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+
+/* ================= MOBILE FIXES ================= */
+@media (max-width: 480px) {
+
+  /* allow full page vertical scrolling */
+  .products-page {
+    min-height: 100vh;
+    overflow-y: auto;
+    padding-bottom: 120px;
+  }
+
+  /* floating Add Product button */
+  .products-page .products-table-header button {
+    position: fixed;
+    bottom: 150px;
+    right: 16px;
+    z-index: 200;
+
+    border-radius: 999px;
+    padding: 14px 18px;
+    font-size: 15px;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+  }
+
+  /* 🔥 HIDE EXPIRY COLUMN — PRODUCTS PAGE ONLY */
+  .products-page .products-table-card table th:nth-of-type(5),
+  .products-page .products-table-card table td:nth-of-type(5) {
+    display: none;
+  }
+}

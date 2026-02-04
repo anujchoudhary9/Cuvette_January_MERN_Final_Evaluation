@@ -1,0 +1,303 @@
+/* ================= OVERVIEW CARDS ================= */
+
+.stats-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.stats-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 18px;
+}
+
+/* 🔼 Title: +2px & bolder */
+.stats-card h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.stats-card strong {
+  font-size: 22px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.stats-card span {
+  font-size: 13px;
+  color: #475569;
+}
+
+.stats-card.yellow {
+  background: #fde068;
+}
+
+.stats-card.green {
+  background: #1ef5c3;
+}
+
+.stats-card.pink {
+  background: #f7b0ff;
+}
+
+/* ================= LAYOUT ================= */
+
+.stats-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+}
+
+/* ================= CHART CARD ================= */
+
+.chart-card {
+  padding: 20px;
+}
+
+.chart-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ================= CHART FRAME ================= */
+
+.chart-frame {
+  margin-top: 14px;
+  height: 360px;
+  border: 1.5px solid #0f172a;
+  border-radius: 12px;
+  padding: 12px;
+  background: #ffffff;
+}
+
+/* ================= RANGE SELECT ================= */
+
+.stats-range-select {
+  padding: 6px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 999px;
+  border: 2px solid #0f172a;
+  background: #ffffff;
+  color: #0f172a;
+  cursor: pointer;
+  appearance: none;
+  outline: none;
+  transition: all 0.15s ease;
+}
+
+.stats-range-select:hover {
+  background: #f8fafc;
+}
+
+.stats-range-select:focus {
+  border-color: #0f172a;
+  box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.15);
+}
+
+.stats-range-select option {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 12px;
+  background: #ffffff;
+  color: #0f172a;
+}
+
+.stats-range-select option:checked {
+  background: #0f172a;
+  color: #ffffff;
+}
+
+/* ===================================================== */
+/* ============ CHART AXIS — SAFE OVERRIDE (ONLY) ======= */
+/* ===================================================== */
+
+.recharts-cartesian-axis-tick text {
+  font-size: 13px;
+  font-weight: 600;
+  fill: #0f172a;
+}
+
+.recharts-cartesian-axis-line {
+  stroke: #cbd5e1;
+  stroke-width: 1.5px;
+}
+
+.recharts-cartesian-grid-horizontal line {
+  stroke: #e5e7eb;
+  stroke-dasharray: 4 4;
+}
+
+.recharts-cartesian-grid-vertical {
+  display: none;
+}
+
+.recharts-legend-item-text {
+  font-size: 13px;
+  font-weight: 600;
+  fill: #0f172a !important;
+}
+
+/* ================= TOP PRODUCTS ================= */
+
+.top-products-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.top-products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.top-product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.top-product img {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 6px;
+}
+
+.top-product span {
+  font-size: 13px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* =====================================================
+   MOBILE STATISTICS — CHART FIRST, CARDS BELOW
+   CORRECT ORDER • SINGLE ROW CARDS (≤ 480px)
+   ===================================================== */
+@media (max-width: 480px) {
+
+  /* ================= PAGE ================= */
+  .statistics-page {
+    position: fixed;
+
+    /* account for fixed header & footer */
+    top: 64px;
+    bottom: 96px;
+    left: 0;
+    right: 0;
+
+    padding: 12px;
+    margin: 0;
+
+    background: transparent;
+    overflow: hidden;
+
+    /* 🔑 enable ordering */
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ================= HIDE UNUSED ================= */
+  .top-products-card {
+    display: none !important;
+  }
+
+  /* ================= ORDER FIX ================= */
+  .stats-row {
+    order: 1;                 /* chart FIRST */
+    display: block !important;
+  }
+
+  .stats-overview {
+    order: 2;                 /* cards BELOW chart */
+    margin-top: 12px;
+    display: block !important;
+  }
+
+  /* =================================================
+     CHART CARD — UNCHANGED
+     ================================================= */
+  .chart-card {
+    width: 100%;
+    height: 360px;
+
+    padding: 14px;
+    border-radius: 16px;
+    background: #ffffff;
+  }
+
+  .chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .chart-card h3 {
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .chart-frame {
+    margin-top: 10px;
+    height: calc(100% - 42px);
+    padding: 10px;
+    border-radius: 12px;
+  }
+
+  .stats-range-select {
+    font-size: 12px;
+    padding: 4px 14px;
+  }
+
+  .recharts-cartesian-axis-tick text {
+    font-size: 11px;
+  }
+
+  .recharts-legend-item-text {
+    font-size: 11px;
+  }
+
+  /* =================================================
+     STATS CARDS — HORIZONTAL ROW (3 CARDS)
+     ================================================= */
+  .stats-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .stats-card {
+    padding: 10px;
+    border-radius: 12px;
+  }
+
+  .stats-card h4 {
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+
+  .stats-card strong {
+    font-size: 15px;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .stats-card span {
+    font-size: 10px;
+    line-height: 1.2;
+  }
+}
