@@ -49,7 +49,7 @@ function Settings() {
     }
 
     const res = await fetch(
-      "https://cuvette-january-mern-final-evaluation.onrender.com/api/auth/profile",
+      "https://cuvette-january-mern-final-evaluation-3fcr.onrender.com/api/auth/profile",
       {
         method: "PUT",
         headers: {
@@ -164,3 +164,4 @@ function Settings() {
 }
 
 export default Settings;
+
