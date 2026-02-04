@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://cuvette-january-mern-final-evaluation.onrender.com";
+const API_BASE_URL = "https://cuvette-january-mern-final-evaluation-3fcr.onrender.com";
 
 export async function loginUser(email, password) {
   const response = await fetch(`${API_BASE_URL}/login`, {
@@ -35,4 +35,5 @@ export async function registerUser(name, email, password) {
 
   return data;
 }
+
 
