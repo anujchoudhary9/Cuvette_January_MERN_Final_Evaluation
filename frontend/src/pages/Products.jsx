@@ -73,7 +73,7 @@ function Products() {
   /* ---------- FETCH PRODUCTS ---------- */
   const fetchProducts = async () => {
     setLoadingProducts(true);
-    const res = await fetch("https://cuvette-january-mern-final-evaluation.onrender.com/api/products", {
+    const res = await fetch("https://cuvette-january-mern-final-evaluation-3fcr.onrender.com/api/products", {
       headers: { Authorization: `Bearer ${token}` },
     });
     const data = await res.json();
@@ -96,7 +96,7 @@ function Products() {
       return setBuyError("Quantity exceeds available stock");
 
     setBuying(true);
-    await fetch("https://cuvette-january-mern-final-evaluation.onrender.com/api/products/buy", {
+    await fetch("https://cuvette-january-mern-final-evaluation-3fcr.onrender.com/api/products/buy", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -121,7 +121,7 @@ function Products() {
     try {
       const formData = new FormData();
       formData.append("file", csvFile);
-      const res = await fetch("https://cuvette-january-mern-final-evaluation.onrender.com/api/products/bulk", {
+      const res = await fetch("https://cuvette-january-mern-final-evaluation-3fcr.onrender.com/api/products/bulk", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -357,7 +357,7 @@ function Products() {
               className="btn-primary"
               onClick={async () => {
                 await fetch(
-                  "https://cuvette-january-mern-final-evaluation.onrender.com/api/products",
+                  "https://cuvette-january-mern-final-evaluation-3fcr.onrender.com/api/products",
                   {
                     method: "POST",
                     headers: {
@@ -738,3 +738,4 @@ const modalStyle = {
 
 
 export default Products;
+
