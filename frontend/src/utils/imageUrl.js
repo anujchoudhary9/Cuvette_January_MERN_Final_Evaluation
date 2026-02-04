@@ -1,4 +1,4 @@
-const API_URL = "https://cuvette-january-mern-final-evaluation.onrender.com";
+const API_URL = "https://cuvette-january-mern-final-evaluation-3fcr.onrender.com";
 
 export function getImageUrl(image) {
   if (!image) return null;
@@ -9,3 +9,4 @@ export function getImageUrl(image) {
   // backend uploaded image
   return `${API_URL}${image}`;
 }
+
