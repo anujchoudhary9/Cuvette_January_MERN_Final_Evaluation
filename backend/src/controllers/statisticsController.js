@@ -1,7 +1,7 @@
 const Invoice = require("../models/Invoice");
 const Product = require("../models/Product");
 
-const BASE_URL = "https://cuvette-january-mern-final-evaluation.onrender.com";
+const BASE_URL = "https://cuvette-january-mern-final-evaluation-3fcr.onrender.com";
 
 /* ---------- HELPERS ---------- */
 const toDayKey = (d) => new Date(d).toISOString().slice(0, 10);
@@ -256,4 +256,5 @@ const getStatistics = async (req, res) => {
 };
 
 module.exports = { getStatistics };
+
 
