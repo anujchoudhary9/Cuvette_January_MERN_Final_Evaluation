@@ -8,6 +8,7 @@ function Settings() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
@@ -18,10 +19,7 @@ function Settings() {
   useEffect(() => {
     if (!storedUser) return;
 
-    if (storedUser.firstName || storedUser.lastName) {
-      setFirstName(storedUser.firstName || "");
-      setLastName(storedUser.lastName || "");
-    } else if (storedUser.name) {
+    if (storedUser.name) {
       const parts = storedUser.name.split(" ");
       setFirstName(parts[0] || "");
       setLastName(parts.slice(1).join(" ") || "");
@@ -40,11 +38,17 @@ function Settings() {
 
     const token = localStorage.getItem("token");
 
+    // ✅ ONLY send what actually changed
     const payload = {
       name: [firstName, lastName].filter(Boolean).join(" "),
     };
 
-    if (password) {
+    // ✅ ONLY send password if user entered one
+    if (password.trim().length > 0) {
+      if (password.length < 8) {
+        alert("Password must be at least 8 characters");
+        return;
+      }
       payload.password = password;
     }
 
@@ -67,10 +71,11 @@ function Settings() {
       return;
     }
 
-    // ✅ Update localStorage ONLY from backend response
+    // ✅ TRUST BACKEND RESPONSE ONLY
     localStorage.setItem("user", JSON.stringify(data.user));
     window.dispatchEvent(new Event("user-updated"));
 
+    // ✅ CLEAR PASSWORD FIELDS
     setPassword("");
     setConfirmPassword("");
 
@@ -115,7 +120,7 @@ function Settings() {
                 <div className="password">
                   <input
                     type={showPassword ? "text" : "password"}
-                    placeholder="at least 8 characters"
+                    placeholder="Leave blank to keep current password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                   />
@@ -133,7 +138,7 @@ function Settings() {
                 <div className="password">
                   <input
                     type={showConfirm ? "text" : "password"}
-                    placeholder="at least 8 characters"
+                    placeholder="Confirm new password"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                   />
@@ -152,7 +157,13 @@ function Settings() {
             </div>
 
             {saved && (
-              <div style={{ marginTop: "8px", fontSize: "12px", color: "#16a34a" }}>
+              <div
+                style={{
+                  marginTop: "8px",
+                  fontSize: "12px",
+                  color: "#16a34a",
+                }}
+              >
                 Profile updated successfully
               </div>
             )}
@@ -164,4 +175,3 @@ function Settings() {
 }
 
 export default Settings;
-
