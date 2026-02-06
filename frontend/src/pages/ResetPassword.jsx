@@ -2,6 +2,9 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "../styles/login.css";
 
+/* ✅ REQUIRED FOR IMAGE TO WORK (VITE SAFE) */
+import resetIllustration from "../assets/images/auth/reset-password.png";
+
 function ResetPassword() {
   const navigate = useNavigate();
 
@@ -25,9 +28,13 @@ function ResetPassword() {
       return;
     }
 
-    try {
-      const resetToken = localStorage.getItem("resetToken");
+    const resetToken = localStorage.getItem("resetToken");
+    if (!resetToken) {
+      setError("Reset session expired. Please try Forgot Password again.");
+      return;
+    }
 
+    try {
       const res = await fetch(
         "https://cuvette-january-mern-final-evaluation-3fcr.onrender.com/api/auth/reset-password",
         {
@@ -51,7 +58,7 @@ function ResetPassword() {
 
       localStorage.removeItem("resetToken");
       navigate("/login");
-    } catch (err) {
+    } catch {
       setError("Something went wrong. Please try again.");
     }
   };
@@ -130,7 +137,7 @@ function ResetPassword() {
       {/* RIGHT PANEL */}
       <div className="login-right">
         <img
-          src="/src/assets/images/auth/reset-password.png"
+          src={resetIllustration}
           alt="Reset password illustration"
           className="login-illustration"
         />
