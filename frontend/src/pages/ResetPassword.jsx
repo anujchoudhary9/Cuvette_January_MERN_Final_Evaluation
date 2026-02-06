@@ -1,9 +1,6 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "../styles/login.css";
-
-/* ===== IMAGE IMPORT (VITE SAFE) ===== */
-import resetIllustration from "../assets/images/auth/reset-password.png";
 
 function ResetPassword() {
   const navigate = useNavigate();
@@ -14,7 +11,7 @@ function ResetPassword() {
   const [showConfirm, setShowConfirm] = useState(false);
   const [error, setError] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
 
@@ -28,7 +25,35 @@ function ResetPassword() {
       return;
     }
 
-    navigate("/login");
+    try {
+      const resetToken = localStorage.getItem("resetToken");
+
+      const res = await fetch(
+        "https://cuvette-january-mern-final-evaluation-3fcr.onrender.com/api/auth/reset-password",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            token: resetToken,
+            password,
+          }),
+        }
+      );
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setError(data.message || "Failed to reset password");
+        return;
+      }
+
+      localStorage.removeItem("resetToken");
+      navigate("/login");
+    } catch (err) {
+      setError("Something went wrong. Please try again.");
+    }
   };
 
   return (
@@ -105,7 +130,7 @@ function ResetPassword() {
       {/* RIGHT PANEL */}
       <div className="login-right">
         <img
-          src={resetIllustration}
+          src="/src/assets/images/auth/reset-password.png"
           alt="Reset password illustration"
           className="login-illustration"
         />
